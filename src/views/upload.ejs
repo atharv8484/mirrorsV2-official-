@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mirrors</title>
+    <link rel="stylesheet" href="/public/css/uploadPage.css">
+    <link rel="stylesheet" href="/public/css/mainPage.css">
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900&display=swap"
+    />
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <div class="layout-container bg-white">
+      <!-- <header>
+        <div class="logo">
+          <svg
+            class="logo-icon"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M3 3H10V10H17V17H24V24H3V3ZM5 5V22H22V19H15V12H8V5H5Z"
+              fill-rule="evenodd"
+            ></path>
+          </svg>
+          <h2 class="logo-text">Mirrors</h2>
+        </div>
+      </header> -->
+      <header>
+        <div class="logo-container">
+          <svg class="logo-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" d="M3 3H10V10H17V17H24V24H3V3ZM5 5V22H22V19H15V12H8V5H5Z" fill-rule="evenodd"></path>
+          </svg>
+          <h2 class="logo-text">Mirrors</h2>
+        </div>
+        <nav>
+          <a class="active" href="/upload">Upload</a>
+          <a  href="/">Search</a>
+        </nav>
+      </header>
+      <main>
+        <div class="form-container">
+          <div class="text-center">
+            <h1 id="Banner">Upload your image</h1>
+            <p>Share your moments with a beautiful picture.</p>
+          </div>
+          <div class="form-content">
+            <div class="drop-zone">
+              <div class="drop-zone-icon-wrapper">
+                <svg
+                  class="drop-zone-icon"
+                  fill="currentColor"
+                  height="48"
+                  viewBox="0 0 256 256"
+                  width="48"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M240,144v64a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V144a16,16,0,0,1,16-16h48a8,8,0,0,1,0,16H40v56H216V144h-8a8,8,0,0,1,0-16h48A16,16,0,0,1,240,144ZM136,36.23,169.58,69.8a8,8,0,0,0,11.31-11.31l-48-48a8,8,0,0,0-11.31,0l-48,48A8,8,0,0,0,84.89,69.8L118.47,36.23A1.36,1.36,0,0,0,120,32V136a8,8,0,0,0,16,0V32A1.36,1.36,0,0,0,136,36.23Z"
+                  ></path>
+                </svg>
+              </div>
+              <p>Drag &amp; drop or click to upload</p>
+              <span>Maximum file size: 5MB</span>
+              <input id="file-input" type="file" />
+            </div>
+            <div class="form-group">
+              <label for="destination-folder">Destination Folder</label>
+              <div class="select-wrapper">
+                <select id="destination-folder" class="form-select">
+                  <option value="travel">Travel</option>
+                  <option value="personal">Personal</option>
+                  <option value="work">Work</option>
+                  <option value="miscellaneous">Miscellaneous</option>
+                </select>
+              </div>
+              <div id="new-folder-input" class="new-folder-input-wrapper hidden">
+                <input
+                  type="text"
+                  class="form-input"
+                  id="new-folder-name"
+                  placeholder="Enter new folder name..."
+                />
+                <button id="add-folder-button" type="button">
+                  <svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <button id="show-new-folder-btn" class="add-folder-btn">
+                <svg
+                  class="h-5 w-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z"
+                  ></path>
+                </svg>
+                Create New Folder
+              </button>
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="description">Description</label>
+              <textarea
+                class="form-textarea"
+                id="description"
+                placeholder="Add a description..."
+                rows="4"
+              ></textarea>
+            </div>
+            <button class="upload-button">
+              <span>Upload Image</span>
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="/public/js/uploadPage-frontend.js"></script>
+    <script src="/public/js/uploadPage-backend.js"></script>
+  </body>
+</html>
