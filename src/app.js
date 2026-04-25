@@ -6,6 +6,9 @@ import path from "path"
 // file imports 
 import authRoute from './routes/auth.route.js'
 import connectMongoDB from "./config/mongoDB.config.js"
+import globalErrorHandler from "./middlewares/globalErrorHandler.middleware.js"
+import AppeError from "./utils/appError.util.js"
+
 
 
 const _public =  path.resolve("public")
@@ -27,9 +30,12 @@ app.use("/public" ,  express.static(_public))
 app.use("/auth"|| "/auth/login" ,  authRoute)
 
 // route
-app.get("/" ,  (req  ,  res)=>{
-    return res.send("Hello world")
+app.get("/" ,  (req  ,  res ,  next)=>{     
+    return res.render("main")
 })
+
+// globalErrorHandler
+app.use(globalErrorHandler)
 
 // db connections
 await connectMongoDB()

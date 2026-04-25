@@ -13,4 +13,4 @@ const schema =  mongoose.model({
 
 const mediaSchema =  mongoose.model("media" ,  schema)
 
-export default schema
+export default mediaSchema

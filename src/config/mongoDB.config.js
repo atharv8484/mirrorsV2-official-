@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 // const variables
 const MongoDB_STRING = process.env.MONGODB_STRING
-console.log(MongoDB_STRING)
 
 async function connectMongoDB() {
     try {

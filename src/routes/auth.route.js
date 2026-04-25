@@ -9,11 +9,5 @@ const route  =  express.Router()
 route.get("/" ,  (req , res)=>{
     return res.render("login-singup")
 })
-route.get("/login" ,  (req , res)=>{
-    return res.json({
-        route:"auth/login",
-        satus:"running"
-    })
-})
 
 export default route
