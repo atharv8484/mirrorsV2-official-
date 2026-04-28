@@ -43,7 +43,7 @@ app.get("/" ,  (req  ,  res ,  next)=>{
 app.use(globalErrorHandler)
 
 // db connections
-// await connectMongoDB()
+await connectMongoDB()
 
 app.listen(PORT ,  ()=>{
     console.log(`http://127.0.0.1:${PORT}`)

@@ -1,20 +1,19 @@
 import AppeError from "../utils/appError.util.js";
-import { funcIndicator } from "../utils/Idicator.utils.js";
+import { controllerIndicator } from "../utils/Idicator.utils.js";
 
 function validateEmail(email) {
   return;
 }
 
-function fieldValidater(allowedFields = ["fullName" , "email" ,  "password"]) {
+function fieldValidater(allowedFields = []) {
   return (req, res, next) => {
     try {
-      funcIndicator("field Validater");
+      controllerIndicator("field Validater 'Middleware' ");
 
       const obj = req.body;
       console.log(obj);
 
-      Object.keys(obj).forEach((key) => {
-        console.log(obj[key]);
+      Object.keys(obj).forEach((key) => {;
         if (!obj[key] || obj[key].trim().length === 0) {
           if (
             !allowedFields.some((field) => {
@@ -23,13 +22,12 @@ function fieldValidater(allowedFields = ["fullName" , "email" ,  "password"]) {
               }
             })
           ) {
-            console.log("fuckkkkk");
             let error = new AppeError(`${key} is required`, 400);
-            next(error);
+            return next(error);
           }
         }
       });
-      next();
+      return next();
     } catch (error) {
       return next(error);
     }

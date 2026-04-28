@@ -1,8 +1,8 @@
-export function funcIndicator(message){
+export function controllerIndicator(message){
     console.log(`============== ${message} =============`)
 }
 
-export function  stateIdicator(message){
+export function  serviceIdicator(message){
     console.log(`------ ${message} ------`)
 }
 

@@ -4,6 +4,7 @@ import express from "express"
 
 // file imports
 import fieldValidater from "../middlewares/fieldValidator.middleware.js"
+import { createUserController } from "../controllers/createUser.controller.js"
 
 
 // constant variables 
@@ -14,10 +15,6 @@ route.get("/" ,  (req , res)=>{
     return res.render("login-singup")
 })
 
-route.post("/singup" , fieldValidater() ,  (req ,  res)=>{
-    return res.status(200).json({
-        success:true
-    })
-})
+route.post("/singup" , fieldValidater() ,  createUserController)
 
 export default route
