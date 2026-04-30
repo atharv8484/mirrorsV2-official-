@@ -2,12 +2,14 @@
 import express from "express"
 import "dotenv/config"
 import path from "path"
+import cookieParser from "cookie-parser"
 
 // file imports 
 import authRoute from './routes/auth.route.js'
 import connectMongoDB from "./config/mongoDB.config.js"
 import globalErrorHandler from "./middlewares/globalErrorHandler.middleware.js"
 import AppError from "./utils/appError.util.js"
+import { authValidator } from "./middlewares/authValidator.middleware.js"
 
 
 
@@ -20,7 +22,7 @@ const _views =  path.resolve("src" , "views")
 
 
 app.use(express.json())
-
+app.use(cookieParser())
 //ejs 
 app.set("view engine" ,  "ejs")
 app.set("views" , _views)
@@ -35,7 +37,8 @@ app.use(
 )
 
 // route
-app.get("/" ,  (req  ,  res ,  next)=>{     
+app.get("/" , authValidator ,  (req  ,  res ,  next)=>{     
+    console.log(req.User)
     return res.render("main")
 })
 
